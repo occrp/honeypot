@@ -30,7 +30,7 @@ function output_specimen_headers($f) {
       header($l);
     }
   }
-  header('X-Rashiq-Testing: indeed')
+  header('X-Rashiq-Testing: indeed'); # DEBUG
 }
 
 

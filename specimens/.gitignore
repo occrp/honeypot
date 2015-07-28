@@ -1,3 +1,5 @@
+# we really don't want the specimens in the repository
 *
+# but we do want this very file and get-specimen.sh script
 !get-specimen.sh
 !.gitignore
