@@ -98,7 +98,7 @@ function dump_request_data() {
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
   
   # is the "action" get parameter set to "lostpassword?
-  if ($_GET['action'] === 'lostpassword' ) {
+  if ( (isset($_GET['action'])) and ($_GET['action'] === 'lostpassword') ) {
     output_specimen_headers(SPECIMEN_DIR . '/lostpass.headers');
     output_specimen_html(SPECIMEN_DIR . '/lostpass.html');
   # nah, just a "clean" login site
