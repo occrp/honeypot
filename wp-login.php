@@ -111,7 +111,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 } elseif($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   # is it the lostpassword page?
-  if (isset($_GET['action'] === 'lostpassword')) {
+  if (isset($_GET['action']) === 'lostpassword') {
     # okay, do we have *anything* in POST?
     if (isset($_POST['user_login'])) {
       
