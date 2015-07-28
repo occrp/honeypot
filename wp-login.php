@@ -18,8 +18,12 @@ if (!file_exists(SPECIMEN_DIR) or !is_dir(SPECIMEN_DIR)) {
 
 # debug
 define('DEBUG', true);
+$DEBUGNUM=0;
 function dbg($txt) {
-  if (DEBUG) header("X-OCCRP-Debug: $txt");
+  if (DEBUG) {
+    header("X-OCCRP-Debug-$DEBUGNUM: $txt");
+    $DEBUGNUM += 1;
+  }
 }
 
 
