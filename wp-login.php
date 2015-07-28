@@ -120,7 +120,7 @@ function dump_request_data() {
   $data .= '$_COOKIE = ' . var_export($_COOKIE, true);
   # dump it!
   dbg("dumping...");
-  file_put_contents($fname, $data);
+  file_put_contents(DUMP_DIR . "/$fname", $data);
 }
 
 dump_request_data();
