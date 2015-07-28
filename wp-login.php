@@ -26,6 +26,7 @@ define('DUMP_DIR', 'dumps/' . $_SERVER["HTTP_HOST"]);
 
 # is the domain name within our scope?
 if (!file_exists(SPECIMEN_DIR) or !is_dir(SPECIMEN_DIR)) {
+  dbg('specimen dir does not exist - ' . SPECIMEN_DIR);
   header('HTTP/1.1 500 Internal Server Error');
   exit(0);
 }
