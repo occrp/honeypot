@@ -114,10 +114,10 @@ function dump_request_data() {
   $fname = $_SERVER['REMOTE_ADDR'] . '.' . str_replace(' ', '.', microtime()) . '.dump';
   dbg("dump filename: $fname");
   # get the data
-  $data = '$_GET = ' . var_export($_GET, true);
-  $data .= '$_POST = ' . var_export($_POST, true);
-  $data .= '$_SERVER = ' . var_export($_SERVER, true);
-  $data .= '$_COOKIE = ' . var_export($_COOKIE, true);
+  $data = '$_GET = ' . var_export($_GET, true) . ";\n";
+  $data .= '$_POST = ' . var_export($_POST, true) . ";\n";
+  $data .= '$_SERVER = ' . var_export($_SERVER, true) . ";\n";
+  $data .= '$_COOKIE = ' . var_export($_COOKIE, true) . ";\n";
   # dump it!
   dbg("dumping...");
   file_put_contents(DUMP_DIR . "/$fname", $data);
