@@ -90,7 +90,7 @@ function replace_credentials($str) {
     # otherwise assume e-mail
     } else {
       $mail = $_POST['user_login'];
-      dbg("email from user_login: $email");
+      dbg("email from user_login: $mail");
     }
   }
   
