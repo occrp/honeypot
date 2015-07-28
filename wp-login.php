@@ -146,7 +146,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
   dbg("POST!");
   
   # is it the lostpassword page?
-  if (isset($_GET['action']) === 'lostpassword') {
+  if (isset($_GET['action']) and ($_GET['action'] === 'lostpassword') ) {
     dbg("lostpassword");
     
     # okay, do we have *anything* in POST?
