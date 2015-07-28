@@ -77,7 +77,7 @@ function replace_credentials($str) {
   }
   
   # if we have 'log' set, that's the username and we're done
-  if ($_POST['log']) {
+  if (isset($_POST['log'])) {
     $user = $_POST['log'];
     dbg("user from log: $user");
     
