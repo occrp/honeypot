@@ -123,7 +123,7 @@ function dump_request_data() {
   file_put_contents($fname, $data);
 }
 
-#dump_request_data();
+dump_request_data();
 
 # is method GET or POST?
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
