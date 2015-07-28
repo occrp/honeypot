@@ -89,7 +89,7 @@ function replace_credentials($str) {
   
   # replace
   dbg("replacing...");
-  $str = str_replace('HONEY', $user, $str);
+  $str = str_replace('HONEYUSER', $user, $str);
   $str = str_replace('HONEYPASS', $pass, $str);
   $str = str_replace('HONEYEMAIL@EXAMPLE.COM', $mail, $str);
   # return the string
