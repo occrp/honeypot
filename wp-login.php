@@ -68,7 +68,7 @@ function replace_credentials($str) {
   # get the creds, if available
   $user = "";
   $mail = "";
-  $pass = ""
+  $pass = "";
   
   # that one's simple
   if (isset($_POST['pwd'])) {
