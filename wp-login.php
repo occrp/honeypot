@@ -21,7 +21,7 @@ if (!is_dir(SPECIMEN_DIR)) {
 # and dumping them out
 function output_specimen_headers($f) {
   $headers = file($f);
-  foreach ($f as $l) {
+  foreach ($headers as $l) {
     if (strpos($l, 'Last-Modified:')) {
       header('Last-Modified: ' . gmdate('D, d M Y H:i:s T'));
     } elseif (strpos($l, 'Date:')) {
