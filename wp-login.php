@@ -1,10 +1,24 @@
 <?php
 
+# debug
+define('DEBUG', false);
+
 # we don't want to leak any data whatsoever
-#error_reporting(0);
-#ini_set("display_errors", 0);
-error_reporting(E_ALL); # DEBUG
-ini_set("display_errors", 1);
+if (DEBUG) {
+  error_reporting(E_ALL); # DEBUG
+  ini_set("display_errors", 1);
+} else {
+  error_reporting(0);
+  ini_set("display_errors", 0);
+}
+
+$GLOBALS['DEBUGNUM']=0;
+function dbg($txt) {
+  if (DEBUG) {
+    header("X-OCCRP-Debug-{$GLOBALS['DEBUGNUM']}: $txt");
+    $GLOBALS['DEBUGNUM'] += 1;
+  }
+}
 
 # specimen 
 define('SPECIMEN_DIR', 'specimens/' . $_SERVER["HTTP_HOST"]);
@@ -13,17 +27,6 @@ define('DUMP_DIR', 'dumps/' . $_SERVER["HTTP_HOST"]);
 # is the domain name within our scope?
 if (!file_exists(SPECIMEN_DIR) or !is_dir(SPECIMEN_DIR)) {
   header('HTTP/1.1 500 Internal Server Error');
-}
-
-
-# debug
-define('DEBUG', true);
-$GLOBALS['DEBUGNUM']=0;
-function dbg($txt) {
-  if (DEBUG) {
-    header("X-OCCRP-Debug-{$GLOBALS['DEBUGNUM']}: $txt");
-    $GLOBALS['DEBUGNUM'] += 1;
-  }
 }
 
 
