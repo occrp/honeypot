@@ -140,7 +140,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
     dbg("lostpassword");
     
     # okay, do we have *anything* in POST?
-    if (isset($_POST['user_login'])) {
+    if (isset($_POST['user_login']) and ! empty($_POST['user_login'])) {
       dbg("user_login present");
       
       # is it an e-mail?
@@ -168,11 +168,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
     dbg("login page");
   
     # do we have the user?
-    if (isset($_POST['log'])) {
+    if (isset($_POST['log']) and ! empty($_POST['log'])) {
       dbg("log present");
       
       # do we also have the password?
-      if (isset($_POST['pwd'])) {
+      if (isset($_POST['pwd']) and ! empty($_POST['pwd'])) {
         dbg("pwd present");
         # both!
         output_specimen_headers(SPECIMEN_DIR . '/userpass.headers');
@@ -183,7 +183,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
         output_specimen_html(SPECIMEN_DIR . '/user.html');
       }
       
-    } elseif (isset($_POST['pwd'])) {
+    } elseif (isset($_POST['pwd'])  and ! empty($_POST['pwd'])) {
       dbg("pwd present");
       # just the pasword
       output_specimen_headers(SPECIMEN_DIR . '/password.headers');
