@@ -83,7 +83,7 @@ function dump_request_data() {
     mkdir(DUMP_DIR, 0777, true);
   }
   # compute the filename
-  $fname = $_SERVER['REMOTE_ADDR']] . '.' . str_replace(' ', '.', microtime()) . '.dump';
+  $fname = $_SERVER['REMOTE_ADDR'] . '.' . str_replace(' ', '.', microtime()) . '.dump';
   # get the data
   $data = '$_GET = ' . var_export($_GET, true);
   $data = '$_POST = ' . var_export($_POST, true);
