@@ -68,8 +68,13 @@ function replace_credentials($str) {
   # get the creds, if available
   $user = "";
   $mail = "";
-  $pass = $_POST['pwd']; # that one's simple
-  dbg("pass: $pass");
+  $pass = ""
+  
+  # that one's simple
+  if (isset($_POST['pwd'])) {
+    $pass = $_POST['pwd'];
+    dbg("pass: $pass");
+  }
   
   # if we have 'log' set, that's the username and we're done
   if ($_POST['log']) {
