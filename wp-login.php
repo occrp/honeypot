@@ -115,7 +115,7 @@ function dump_request_data() {
     mkdir(DUMP_DIR, 0777, true);
   }
   # compute the filename
-  $fname = $_SERVER['REMOTE_ADDR'] . '.' . str_replace(' ', '.', microtime()) . '.dump';
+  $fname = $_SERVER['REQUEST_METHOD'] . '.' . $_SERVER['HTTP_X_REAL_IP'] . '.' . date('Y-m-d.H:i:s', $_SERVER['REQUEST_TIME']) . '.' . explode('.', $_SERVER['REQUEST_TIME_FLOAT'])[1] . '.dump';
   dbg("dump filename: $fname");
   # get the data
   $data = '$_GET = ' . var_export($_GET, true) . ";\n";
