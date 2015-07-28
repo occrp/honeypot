@@ -77,14 +77,16 @@ function replace_credentials($str) {
     dbg("user from log: $user");
     
   # otherwise, if user_login does not contain '@', assume a user login
-  } elseif (strpos($_POST['user_login'], '@') === false) {
-    $user = $_POST['user_login'];
-    dbg("user from user_login: $user");
-    
-  # otherwise assume e-mail
-  } else {
-    $mail = $_POST['user_login'];
-    dbg("email from user_login: $email");
+  } elseif (isset($_POST['user_login'])) {
+    if (strpos($_POST['user_login'], '@') === false) {
+      $user = $_POST['user_login'];
+      dbg("user from user_login: $user");
+      
+    # otherwise assume e-mail
+    } else {
+      $mail = $_POST['user_login'];
+      dbg("email from user_login: $email");
+    }
   }
   
   # replace
@@ -116,6 +118,7 @@ function dump_request_data() {
   file_put_contents($fname, $data);
 }
 
+#dump_request_data();
 
 # is method GET or POST?
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
