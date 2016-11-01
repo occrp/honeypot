@@ -38,6 +38,9 @@ function output_specimen_headers($f) {
       header($l);
     }
   }
+  # redirect if the we're not entirely home yet
+  if ($_SERVER['REQUEST_URI'] !== '/') header('Location: /');
+  # debug
   dbg('debugging enabled');
 }
 
