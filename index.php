@@ -21,7 +21,7 @@ function dbg($txt) {
 }
 
 # dump dir
-define('DUMP_DIR', 'dumps/' . $_SERVER["HTTP_HOST"]);
+define('DUMP_DIR', 'dumps/');
 
 
 # getting the specimen headers
@@ -77,7 +77,10 @@ function dump_request_data() {
   file_put_contents(DUMP_DIR . "/$fname", $data);
 }
 
-dump_request_data();
+# dump request data, if it makes sense
+if ($_SERVER['REQUEST_URI'] !== '/') dump_request_data();
+
+# smoke and mirrors
 output_specimen_headers('504.headers');
 output_specimen_html('504.html');
 
